@@ -1,0 +1,27 @@
+// Colors
+$blue-400:#0a58ca;
+$body-bg:#f2f3f7;
+
+// bprder-radius
+$border:10px;
+$borders:(
+  0:0,
+  10:$border,
+  20:$border * 2,
+);
+$utilities: () !default;
+$utilities: map-merge(
+  (
+    "border-radius": (
+      responsive: true,
+      property: border-radius,
+      class: br,
+      values: $borders
+    ),
+  ),
+  $utilities
+  );
+
+body{
+    background-color: $body-bg;
+}

@@ -14,7 +14,7 @@
                     <form method="POST" action="{{ route('organization-store') }}">
                         @csrf
                         <div class="row mb-3">
-                            <div class="col">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="name"  class="form-label">დასახელება</label>
                                     <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : ''}}" value="{{ old('name') }}" id="name" name="name" aria-describedby="name-validation">
@@ -23,7 +23,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="address" class="form-label">მისამართი</label>
                                     <input type="text" class="form-control {{ $errors->has('address') ? 'is-invalid' : ''}}" value="{{ old('address') }}" id="address" name="address" aria-describedby="address-validation">
@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="activities" class="form-label">საქმიანობა</label>
                                     <input type="text" class="form-control {{ $errors->has('activities') ? 'is-invalid' : ''}}" value="{{ old('activities') }}" id="activities" name="activities" aria-describedby="activities-validation">
@@ -43,7 +43,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <div class="form-group mb-4">
                                     <label for="individuals" class="form-label">ფიზიკური პირები</label>
                                     <select name="individuals[]" class="form-control  {{ $errors->has('individuals') ? 'is-invalid' : ''}}"  id="individuals" size="5" multiple>

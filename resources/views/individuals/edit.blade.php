@@ -15,7 +15,7 @@
                         @csrf
                         @method('PUT')
                         <div class="row mb-3">
-                            <div class="col">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="firstname" class="form-label">სახელი</label>
                                     <input type="text" class="form-control {{ $errors->has('firstname') ? 'is-invalid' : ''}}" value="{{ $individual->firstname }}" id="firstname" name="firstname" aria-describedby="firstname-validation">
@@ -24,7 +24,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="lastname" class="form-label">გვარი</label>
                                     <input type="text" class="form-control {{ $errors->has('lastname') ? 'is-invalid' : ''}}" value="{{ $individual->lastname }}" id="lastname" name="lastname" aria-describedby="lastname-validation">
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <div class="form-check">
 
                                     <input class="form-check-input" type="radio" name="gender" id="female" value="0" {{$individual->gender === 0 ? 'checked' : ''}}>
@@ -50,7 +50,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="personal_number" class="form-label">პირადი ნომერი</label>
                                     <input type="text" class="form-control {{ $errors->has('personal_number') ? 'is-invalid' : ''}}" value="{{ $individual->personal_number }}" id="personal_number" name="personal_number" aria-describedby="personal_number-validation">
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="birth_date" class="form-label">დაბადების თარიღი</label>
                                     <input type="date" class="form-control {{ $errors->has('birth_date') ? 'is-invalid' : ''}}" value="{{ $individual->birth_date }}" id="birth_date" name="birth_date" aria-describedby="birth_date-validation">
@@ -70,7 +70,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="city" class="form-label">ქალაქი</label>
                                     <input type="text" class="form-control {{ $errors->has('city') ? 'is-invalid' : ''}}" value="{{ $individual->city }}" id="city" name="city" aria-describedby="city-validation">
@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="phone_number_1" class="form-label">ტელეფონის ნომერი 1</label>
                                     <input type="text" class="form-control {{ $errors->has('phone_number_1') ? 'is-invalid' : ''}}" value="{{$individual->phone_number_1 }}" id="phone_number_1" name="phone_number_1" aria-describedby="phone_number_1-validation">
@@ -90,7 +90,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="phone_number_2" class="form-label">ტელეფონის ნომერი 2</label>
                                     <input type="text" class="form-control {{ $errors->has('phone_number_2') ? 'is-invalid' : ''}}" value="{{ $individual->phone_number_2 }}" id="phone_number_2" name="phone_number_2" aria-describedby="phone_number_2-validation">

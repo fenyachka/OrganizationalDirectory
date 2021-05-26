@@ -44,14 +44,17 @@ class IndividualsController extends Controller
 
     public function search(Request $request)
     {
-        $filter = $request->input('search');
-        $individuals = Individual::select('*')
-            ->where('firstname', 'LIKE', '%' . $filter . '%')
-            ->orWhere('lastname', 'LIKE', '%' . $filter . '%')
-            ->orWhere('personal_number', 'LIKE', '%' . $filter . '%')
-            ->paginate(5);
-
-        return view('individuals.index',  ['individuals' => $individuals]);
+        $filter = '';
+        $individuals = Individual::paginate(5);
+        if (request('search')) {
+            $filter = $request->input('search');
+            $individuals = Individual::select('*')
+                ->where('firstname', 'LIKE', '%' . $filter . '%')
+                ->orWhere('lastname', 'LIKE', '%' . $filter . '%')
+                ->orWhere('personal_number', 'LIKE', '%' . $filter . '%')
+                ->paginate(5);
+        }
+        return view('individuals.index',  ['individuals' => $individuals, 'search' => $filter]);
     }
     public function validateIndividual()
     {

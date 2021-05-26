@@ -17,8 +17,8 @@ class OrganizationsController extends Controller
 
     public function create()
     {
-        return view('organizations.create',[
-            'individuals'=>Individual::all()
+        return view('organizations.create', [
+            'individuals' => Individual::all()
         ]);
     }
 
@@ -50,14 +50,17 @@ class OrganizationsController extends Controller
 
     public function search(Request $request)
     {
-        $filter = $request->input('search');
-        $organizations = Organization::select('*')
-            ->where('name', 'LIKE', '%' . $filter . '%')
-            ->orWhere('address', 'LIKE', '%' . $filter . '%')
-            ->orWhere('activities', 'LIKE', '%' . $filter . '%')
-            ->paginate(5);
-
-        return view('organizations.index',  ['organizations' => $organizations]);
+        $filter = '';
+        $organizations = Organization::paginate(5);
+        if (request('search')) {
+            $filter = $request->input('search');
+            $organizations = Organization::select('*')
+                ->where('name', 'LIKE', '%' . $filter . '%')
+                ->orWhere('address', 'LIKE', '%' . $filter . '%')
+                ->orWhere('activities', 'LIKE', '%' . $filter . '%')
+                ->paginate(5);
+        }
+        return view('organizations.index',  ['organizations' => $organizations, 'search' => $filter]);
     }
     public function validateOrganization()
     {
